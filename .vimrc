@@ -4,6 +4,8 @@ set backspace=indent,eol,start
 syntax on
 
 set number
+set hidden
+set confirm
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -15,6 +17,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'scrooloose/nerdtree'
 
+let g:NERDTreeWinSize=30
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
+
+autocmd VimEnter * :source /media/koen/dev/vim/session.vim
+autocmd VimLeave * :mksession! /media/koen/dev/vim/session.vim
