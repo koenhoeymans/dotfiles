@@ -25,3 +25,5 @@ filetype plugin indent on
 
 autocmd VimEnter * :source /media/koen/dev/vim/session.vim
 autocmd VimLeave * :mksession! /media/koen/dev/vim/session.vim
+
+imap jk <esc>
