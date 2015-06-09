@@ -21,11 +21,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'bling/vim-airline'
 
 " the snippets
 Plugin 'honza/vim-snippets'
 
 let g:NERDTreeWinSize=30
+let g:buffergator_viewport_split_policy="B"
+let g:airline_powerline_fonts = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -40,3 +44,5 @@ autocmd VimLeave * :mksession! /media/koen/dev/vim/session.vim
 let mapleader=","
 imap jk <esc>
 map <leader>n :NERDTreeToggle<cr>
+
+set t_Co=256
