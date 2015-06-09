@@ -17,6 +17,14 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'scrooloose/nerdtree'
 
+" vim snipmate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+
+" the snippets
+Plugin 'honza/vim-snippets'
+
 let g:NERDTreeWinSize=30
 
 " All of your Plugins must be added before the following line
