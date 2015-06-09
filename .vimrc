@@ -24,6 +24,11 @@ call vundle#end()
 filetype plugin indent on
 
 autocmd VimEnter * :source /media/koen/dev/vim/session.vim
+autocmd VimEnter * :NERDTree /media/koen/dev/projects/
+
+autocmd VimLeave * :NERDTreeClose
 autocmd VimLeave * :mksession! /media/koen/dev/vim/session.vim
 
+let mapleader=","
 imap jk <esc>
+map <leader>n :NERDTreeToggle<cr>
