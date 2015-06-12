@@ -21,11 +21,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'bling/vim-airline'
 
 " the snippets
 Plugin 'honza/vim-snippets'
+
+Plugin 'vim-php/phpctags'
+set tags=/media/koen/dev/vim/ctags.txt
 
 let g:NERDTreeWinSize=30
 let g:buffergator_viewport_split_policy="B"
