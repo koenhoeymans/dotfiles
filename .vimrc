@@ -47,7 +47,7 @@ autocmd VimLeave * :mksession! /media/koen/dev/vim/session.vim
 
 let mapleader=","
 imap jk <esc>
-map <leader>n :NERDTreeToggle<cr>
+nmap <leader>n :NERDTreeToggle<cr>
 set laststatus=2 "always show statusline
 set t_Co=256
 
