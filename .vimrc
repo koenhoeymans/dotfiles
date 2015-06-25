@@ -28,6 +28,8 @@ Plugin 'honza/vim-snippets'
 " working with buffers
 Plugin 'jeetsukumaran/vim-buffergator'
 let g:buffergator_viewport_split_policy="B"
+let g:buffergator_sort_regime="mru"
+nmap <C-p> :BuffergatorMruCyclePrev<cr>
 
 " intellisense
 Plugin 'vim-php/phpctags'
