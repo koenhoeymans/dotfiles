@@ -44,6 +44,23 @@ nmap <leader>t :TagbarToggle<cr>
 Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 
+" trailing whitespace
+Plugin 'bronson/vim-trailing-whitespace'
+
+"syntax checking
+Plugin 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers = ['php']
+
+" commenting/uncommenting
+Plugin 'scrooloose/nerdcommenter'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
@@ -55,7 +72,7 @@ set tags=/media/koen/dev/vim/ctags.txt
 set number
 
 " always show statusline
-set laststatus=2 
+set laststatus=2
 
 " hide buffer instead of needing to write first before opening another
 set hidden
@@ -87,6 +104,7 @@ imap jk <esc>
 " no swap/backup files between other files
 set backupdir=/media/koen/dev/vim/backup,.
 set directory=/media/koen/dev/vim/backup,.
+
 
 " ----
 " tags
