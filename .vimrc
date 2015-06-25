@@ -22,12 +22,12 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
+" the snippets
+Plugin 'honza/vim-snippets'
+
 " working with buffers
 Plugin 'jeetsukumaran/vim-buffergator'
 let g:buffergator_viewport_split_policy="B"
-
-" the snippets
-Plugin 'honza/vim-snippets'
 
 " intellisense
 Plugin 'vim-php/phpctags'
