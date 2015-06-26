@@ -89,6 +89,12 @@ set omnifunc=phpcomplete#CompletePHP
 " 4 spaces for a tab
 set tabstop=4
 
+" size of an indent
+set shiftwidth=4
+
+" always use spaces
+set expandtab
+
 " syntax highlighting
 syntax on
 
