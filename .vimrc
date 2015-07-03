@@ -111,6 +111,10 @@ let mapleader=","
 " easy escape
 imap jk <esc>
 
+" easy page up/down
+nmap <c-j> <c-d>
+nmap <c-k> <c-u>
+
 " no swap/backup files between other files
 set backupdir=/media/koen/dev/vim/backup,.
 set directory=/media/koen/dev/vim/backup,.
