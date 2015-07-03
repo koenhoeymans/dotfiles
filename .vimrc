@@ -1,4 +1,3 @@
-" required for Vundle
 set nocompatible
 filetype off
 
@@ -16,6 +15,9 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'scrooloose/nerdtree'
 let g:NERDTreeWinSize=30
 nmap <leader>n :NERDTreeToggle<cr>
+
+" color scheme
+Plugin 'NLKNguyen/papercolor-theme'
 
 " vim snipmate and dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -36,6 +38,7 @@ Plugin 'vim-php/phpctags'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+Plugin 'Valloric/YouCompleteMe'
 
 " tagbar
 Plugin 'majutsushi/tagbar'
@@ -45,9 +48,6 @@ nmap <leader>t :TagbarToggle<cr>
 " nice statusline
 Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
-
-" trailing whitespace
-Plugin 'bronson/vim-trailing-whitespace'
 
 "syntax checking
 Plugin 'scrooloose/syntastic'
@@ -68,6 +68,9 @@ Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 filetype plugin indent on
 
+" colorscheme
+colorscheme PaperColor
+
 " line numbers
 set number
 
@@ -85,6 +88,7 @@ set backspace=indent,eol,start
 
 " keyword completion
 set omnifunc=phpcomplete#CompletePHP
+set completeopt+=preview
 
 " 4 spaces for a tab
 set tabstop=4
