@@ -115,6 +115,9 @@ imap jk <esc>
 set backupdir=/media/koen/dev/vim/backup,.
 set directory=/media/koen/dev/vim/backup,.
 
+" line limit indication
+set colorcolumn=80
+
 
 " ----
 " tags
