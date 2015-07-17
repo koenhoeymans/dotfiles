@@ -20,9 +20,8 @@ nmap <leader>n :NERDTreeToggle<cr>
 Plugin 'NLKNguyen/papercolor-theme'
 
 " vim snipmate and dependencies
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<c-j>"
 
 " the snippets
 Plugin 'honza/vim-snippets'
@@ -121,6 +120,9 @@ set directory=/media/koen/dev/vim/backup,.
 
 " line limit indication
 set colorcolumn=80
+
+" close viewport and display next buffer
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 
 " ----
