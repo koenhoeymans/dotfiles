@@ -19,7 +19,7 @@ nmap <leader>n :NERDTreeToggle<cr>
 " color scheme
 Plugin 'NLKNguyen/papercolor-theme'
 
-" vim snipmate and dependencies
+" vim snippet handler
 Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<c-j>"
 
