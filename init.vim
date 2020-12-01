@@ -5,6 +5,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-obsession'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'itchyny/lightline.vim'
+Plug 'chrisbra/Recover.vim'
 
 call plug#end()
 
