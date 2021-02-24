@@ -2,5 +2,5 @@
 
 set -euxo pipefail
 
-sudo adduser koen
+sudo adduser koen --gecos ''
 sudo usermod -a -G sudo koen
