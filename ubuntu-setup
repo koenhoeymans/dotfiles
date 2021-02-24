@@ -23,3 +23,8 @@ wget -O $HOME_DIRECTORY/.ssh/authorized_keys https://raw.githubusercontent.com/k
 chmod 0700 $HOME_DIRECTORY/.ssh
 chmod 0600 $HOME_DIRECTORY/.ssh/authorized_keys
 chown --recursive USERNAME:USERNAME $HOME_DIRECTORY/.ssh
+
+sudo sed -re 's/^(\#?)(PasswordAuthentication)([[:space:]]+)yes/\2\3no/' -i."$(echo 'old')" /etc/ssh/sshd_config
+sudo sed -re 's/^(\#?)(PermitRootLogin)([[:space:]]+)(.*)/PermitRootLogin no/' -i /etc/ssh/sshd_config
+
+sudo systemctl restart sshd
