@@ -4,3 +4,6 @@ set -euxo pipefail
 
 sudo adduser koen --gecos ''
 sudo usermod -a -G sudo koen
+
+# ssh
+sudo apt-get install openssh-server -y
