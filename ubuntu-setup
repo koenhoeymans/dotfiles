@@ -10,8 +10,8 @@ set -euxo pipefail
 USERNAME = koen
 HOME_DIRECTORY = /home/$USERNAME
 
-sudo adduser koen --gecos ''
-sudo usermod -a -G sudo koen
+sudo adduser $USERNAME --gecos ''
+sudo usermod -a -G sudo $USERNAME
 
 # ssh
 sudo apt-get install openssh-server -y
