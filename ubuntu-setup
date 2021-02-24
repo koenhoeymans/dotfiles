@@ -1,9 +1,25 @@
 #!/bin/bash
 
+# some, but not all, inspiration:
+# https://github.com/do-community/automated-setups/blob/master/Ubuntu-18.04/initial_server_setup.sh
+# https://github.com/potts99/Linux-Post-Install/blob/master/post-install.sh
+# https://github.com/jasonheecs/ubuntu-server-setup
+
 set -euxo pipefail
+
+USERNAME = koen
+HOME_DIRECTORY = /home/$USERNAME
 
 sudo adduser koen --gecos ''
 sudo usermod -a -G sudo koen
 
 # ssh
 sudo apt-get install openssh-server -y
+
+mkdir --parents $HOME_DIRECTORY/.ssh
+
+wget -O $HOME_DIRECTORY/.ssh/authorized_keys https://raw.githubusercontent.com/koenhoeymans/dotfiles/master/authorized_keys
+
+chmod 0700 $HOME_DIRECTORY/.ssh
+chmod 0600 $HOME_DIRECTORY/.ssh/authorized_keys"
+chown --recursive USERNAME:USERNAME $HOME_DIRECTORY/.ssh
