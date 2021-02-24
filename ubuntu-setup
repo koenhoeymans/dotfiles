@@ -27,4 +27,15 @@ chown --recursive $USERNAME:$USERNAME $HOME_DIRECTORY/.ssh
 sudo sed -re 's/^(\#?)(PasswordAuthentication)([[:space:]]+)yes/\2\3no/' -i."$(echo 'old')" /etc/ssh/sshd_config
 sudo sed -re 's/^(\#?)(PermitRootLogin)([[:space:]]+)(.*)/PermitRootLogin no/' -i /etc/ssh/sshd_config
 
-sudo systemctl restart sshd
+# firewall
+
+ufw allow OpenSSH
+ufw --force enable
+
+# Fail2Ban install
+sudo apt-get install -y fail2ban
+sudo systemctl start fail2ban
+sudo systemctl enable fail2ban
+
+# Automatic downloads of security updates
+sudo apt-get install unattended-upgrades
