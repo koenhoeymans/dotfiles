@@ -7,8 +7,8 @@
 
 set -euxo pipefail
 
-USERNAME = koen
-HOME_DIRECTORY = /home/$USERNAME
+USERNAME=koen
+HOME_DIRECTORY=/home/$USERNAME
 
 sudo adduser $USERNAME --gecos ''
 sudo usermod -a -G sudo $USERNAME
