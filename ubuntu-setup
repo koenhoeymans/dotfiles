@@ -29,8 +29,8 @@ sudo sed -re 's/^(\#?)(PermitRootLogin)([[:space:]]+)(.*)/PermitRootLogin no/' -
 
 # firewall
 
-ufw allow OpenSSH
-ufw --force enable
+sudo ufw allow OpenSSH
+sudo ufw --force enable
 
 # Fail2Ban install
 sudo apt-get install -y fail2ban
