@@ -24,7 +24,7 @@ sudo chmod 0700 $HOME_DIRECTORY/.ssh
 sudo chmod 0600 $HOME_DIRECTORY/.ssh/authorized_keys
 sudo chown --recursive $USERNAME:$USERNAME $HOME_DIRECTORY/.ssh
 
-sudo sed -re 's/^(\#?)(PasswordAuthentication)([[:space:]]+)yes/\2\3no/' -i."$(echo 'old')" /etc/ssh/sshd_config
+sudo sed -re 's/^(\#?)(PasswordAuthentication)([[:space:]]+)yes/\2\3no/' -i /etc/ssh/sshd_config
 sudo sed -re 's/^(\#?)(PermitRootLogin)([[:space:]]+)(.*)/PermitRootLogin no/' -i /etc/ssh/sshd_config
 
 # firewall
