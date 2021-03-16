@@ -47,6 +47,26 @@ sudo apt-get install unattended-upgrades
 sudo ln -fs "/usr/share/zoneinfo/Europe/Brussels" /etc/localtime # https://bugs.launchpad.net/ubuntu/+source/tzdata/+bug/1554806
 sudo dpkg-reconfigure -f noninteractive tzdata
 
-# mail
-sudo apt-get install mailutils postfix
+# mail alerts
 
+# adapted from: https://www.cyberciti.biz/faq/postfix-smtp-authentication-for-mail-servers/
+# choose satellite system
+# use system name
+# mail.zxcs.nl:465
+sudo apt-get install mailutils postfix
+read -sp 'password for koen@hoeymans.be:' mailpassword
+echo 'mail.zxcs.nl koen@hoeymans.be:'$mailpassword > /etc/postfix/password
+chown root:root /etc/postfix/password
+chmod 0600 /etc/postfix/password
+postmap hash:/etc/postfix/password
+echo 'smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/password
+smtp_sasl_security_options =
+smtp_tls_wrappermode = yes
+smtp_tls_security_level = encrypt
+' >> /etc/postfix/main.cf
+/etc/init.d/postfix reload
+
+mail -s 'new system set up' koen@hoeymans.be < echo 'now rebooting'
+
+reboot
