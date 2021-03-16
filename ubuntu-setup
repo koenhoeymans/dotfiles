@@ -5,6 +5,10 @@
 # https://github.com/potts99/Linux-Post-Install/blob/master/post-install.sh
 # https://github.com/jasonheecs/ubuntu-server-setup
 
+# wget https://raw.githubusercontent.com/koenhoeymans/dotfiles/master/ubuntu-setup
+# chmod +x ubuntu-setup
+# ./ubuntu-setup
+
 set -euxo pipefail
 
 USERNAME=koen
