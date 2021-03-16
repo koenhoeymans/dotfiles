@@ -42,3 +42,11 @@ sudo systemctl enable fail2ban
 
 # Automatic downloads of security updates
 sudo apt-get install unattended-upgrades
+
+# timezone
+sudo ln -fs "/usr/share/zoneinfo/Europe/Brussels" /etc/localtime # https://bugs.launchpad.net/ubuntu/+source/tzdata/+bug/1554806
+sudo dpkg-reconfigure -f noninteractive tzdata
+
+# mail
+sudo apt-get install mailutils postfix
+
