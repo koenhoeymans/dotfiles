@@ -10,42 +10,42 @@ set -euxo pipefail
 USERNAME=koen
 HOME_DIRECTORY=/home/$USERNAME
 
-sudo adduser $USERNAME --gecos ''
-sudo usermod -a -G sudo $USERNAME
+adduser $USERNAME --gecos ''
+usermod -a -G sudo $USERNAME
 
 
-sudo apt-get update
+apt-get update
 
 # ssh
-sudo apt-get install openssh-server -y
+apt-get install openssh-server -y
 
-sudo mkdir --parents $HOME_DIRECTORY/.ssh
+mkdir --parents $HOME_DIRECTORY/.ssh
 
 wget -O $HOME_DIRECTORY/.ssh/authorized_keys https://raw.githubusercontent.com/koenhoeymans/dotfiles/master/authorized_keys
 
-sudo chmod 0700 $HOME_DIRECTORY/.ssh
-sudo chmod 0600 $HOME_DIRECTORY/.ssh/authorized_keys
-sudo chown --recursive $USERNAME:$USERNAME $HOME_DIRECTORY/.ssh
+chmod 0700 $HOME_DIRECTORY/.ssh
+chmod 0600 $HOME_DIRECTORY/.ssh/authorized_keys
+chown --recursive $USERNAME:$USERNAME $HOME_DIRECTORY/.ssh
 
-sudo sed -re 's/^(\#?)(PasswordAuthentication)([[:space:]]+)yes/\2\3no/' -i /etc/ssh/sshd_config
-sudo sed -re 's/^(\#?)(PermitRootLogin)([[:space:]]+)(.*)/PermitRootLogin no/' -i /etc/ssh/sshd_config
+sed -re 's/^(\#?)(PasswordAuthentication)([[:space:]]+)yes/\2\3no/' -i /etc/ssh/sshd_config
+sed -re 's/^(\#?)(PermitRootLogin)([[:space:]]+)(.*)/PermitRootLogin no/' -i /etc/ssh/sshd_config
 
 # firewall
 
-sudo ufw allow OpenSSH
-sudo ufw --force enable
+ufw allow OpenSSH
+ufw --force enable
 
 # Fail2Ban install
-sudo apt-get install -y fail2ban
-sudo systemctl start fail2ban
-sudo systemctl enable fail2ban
+apt-get install -y fail2ban
+systemctl start fail2ban
+systemctl enable fail2ban
 
 # Automatic downloads of security updates
-sudo apt-get install unattended-upgrades
+apt-get install unattended-upgrades
 
 # timezone
-sudo ln -fs "/usr/share/zoneinfo/Europe/Brussels" /etc/localtime # https://bugs.launchpad.net/ubuntu/+source/tzdata/+bug/1554806
-sudo dpkg-reconfigure -f noninteractive tzdata
+ln -fs "/usr/share/zoneinfo/Europe/Brussels" /etc/localtime # https://bugs.launchpad.net/ubuntu/+source/tzdata/+bug/1554806
+dpkg-reconfigure -f noninteractive tzdata
 
 # mail alerts
 
@@ -53,7 +53,7 @@ sudo dpkg-reconfigure -f noninteractive tzdata
 # choose satellite system
 # use system name
 # mail.zxcs.nl:465
-sudo apt-get install mailutils postfix
+apt-get install mailutils postfix
 read -sp 'password for koen@hoeymans.be:' mailpassword
 echo 'mail.zxcs.nl koen@hoeymans.be:'$mailpassword > /etc/postfix/password
 chown root:root /etc/postfix/password
@@ -67,6 +67,6 @@ smtp_tls_security_level = encrypt
 ' >> /etc/postfix/main.cf
 /etc/init.d/postfix reload
 
-mail -s 'new system set up' koen@hoeymans.be < echo 'now rebooting'
+mail -s 'new system set up' koen@hoeymans.be <<< 'now rebooting'
 
 reboot
