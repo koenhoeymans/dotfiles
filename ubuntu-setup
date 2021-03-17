@@ -47,10 +47,10 @@ systemctl enable fail2ban
 # Automatic downloads of security updates
 apt-get install unattended-upgrades apt-listchanges update-notifier-common
 
-echo Unattended-Upgrade::Mail "koen@hoeymans.be"; > /etc/apt/apt.conf.d/50unattended-upgrades
-echo Unattended-Upgrade::Automatic-Reboot "true"; > /etc/apt/apt.conf.d/50unattended-upgrades
-echo email_address=koen@hoeymans.be > /etc/apt/listchanges.conf
-echo APT::Periodic::AutocleanInterval "7"; > /etc/apt/apt.conf.d/20auto-upgrades
+echo Unattended-Upgrade::Mail "koen@hoeymans.be"; >> /etc/apt/apt.conf.d/50unattended-upgrades
+echo Unattended-Upgrade::Automatic-Reboot "true"; >> /etc/apt/apt.conf.d/50unattended-upgrades
+echo email_address=koen@hoeymans.be >> /etc/apt/listchanges.conf
+echo APT::Periodic::AutocleanInterval "7"; >> /etc/apt/apt.conf.d/20auto-upgrades
 
 # timezone
 ln -fs "/usr/share/zoneinfo/Europe/Brussels" /etc/localtime # https://bugs.launchpad.net/ubuntu/+source/tzdata/+bug/1554806
