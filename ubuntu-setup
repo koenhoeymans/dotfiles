@@ -36,6 +36,8 @@ sed -re 's/^(\#?)(PermitRootLogin)([[:space:]]+)(.*)/PermitRootLogin no/' -i /et
 
 # firewall
 
+apt-get install ufw
+
 ufw allow OpenSSH
 ufw --force enable
 
