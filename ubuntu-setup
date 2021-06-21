@@ -65,7 +65,7 @@ dpkg-reconfigure -f noninteractive tzdata
 # choose satellite system
 # use system name
 # mail.zxcs.nl:465
-apt-get install mailutils postfix
+apt-get install mailutils postfix libsasl2-modules
 read -sp 'password for koen@hoeymans.be:' mailpassword
 echo 'mail.zxcs.nl koen@hoeymans.be:'$mailpassword > /etc/postfix/password
 chown root:root /etc/postfix/password
