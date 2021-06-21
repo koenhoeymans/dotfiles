@@ -65,6 +65,7 @@ dpkg-reconfigure -f noninteractive tzdata
 # choose satellite system
 # use system name
 # mail.zxcs.nl:465
+# libsasl2-modules are for rpi os
 apt-get install mailutils postfix libsasl2-modules
 read -sp 'password for koen@hoeymans.be:' mailpassword
 echo 'mail.zxcs.nl koen@hoeymans.be:'$mailpassword > /etc/postfix/password
