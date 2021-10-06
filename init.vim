@@ -43,3 +43,8 @@ let g:lightline = { 'colorscheme': 'powerline' }
 set hidden
 let g:buffergator_viewport_split_policy = "T"
 let g:buffergator_sort_regime = "mru"
+
+" copy/paste
+" """"""""""
+vmap <C-c> "*y
+imap <C-v> <C-r><C-p>*
