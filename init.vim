@@ -25,6 +25,7 @@ set signcolumn=yes
 
 let mapleader = ','
 inoremap jj <esc>
+set ignorecase
 
 " NERDTree
 " """"""""
