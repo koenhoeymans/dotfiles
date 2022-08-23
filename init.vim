@@ -1,8 +1,7 @@
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin()
 
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-obsession'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'itchyny/lightline.vim'
 Plug 'chrisbra/Recover.vim'
@@ -49,3 +48,8 @@ let g:buffergator_sort_regime = "mru"
 " """"""""""
 vmap <C-c> "*y
 imap <C-v> <C-r><C-p>*
+
+" saving folds
+" """"""""""""
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
