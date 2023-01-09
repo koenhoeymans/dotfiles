@@ -14,11 +14,19 @@ set -euxo pipefail
 USERNAME=koen
 HOME_DIRECTORY=/home/$USERNAME
 
+# create a new user with some general info (--gecos), avoiding prompts for these
 adduser $USERNAME --gecos ''
+
+# add (-a) user to the sudo group (-G) 
 usermod -a -G sudo $USERNAME
 
+# choose a password
+passwd $USERNAME
 
+
+# update package information
 apt-get update
+
 
 # ssh
 apt-get install openssh-server -y
@@ -31,8 +39,8 @@ chmod 0700 $HOME_DIRECTORY/.ssh
 chmod 0600 $HOME_DIRECTORY/.ssh/authorized_keys
 chown --recursive $USERNAME:$USERNAME $HOME_DIRECTORY/.ssh
 
-sed -re 's/^(\#?)(PasswordAuthentication)([[:space:]]+)yes/\2\3no/' -i /etc/ssh/sshd_config
-sed -re 's/^(\#?)(PermitRootLogin)([[:space:]]+)(.*)/PermitRootLogin no/' -i /etc/ssh/sshd_config
+sed -re "s/^(\#?)(PasswordAuthentication)([[:space:]]+)(yes|no)/Match user\ \!$USERNAME\n\2\3no\nMatch user $USERNAME\n\2\3yes\nMatch all/" -i /etc/ssh/sshd_config
+
 
 # firewall
 
