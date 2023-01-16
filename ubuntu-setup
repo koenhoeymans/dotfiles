@@ -19,8 +19,6 @@ adduser $USERNAME --gecos ''
 # add (-a) user to the sudo group (-G) 
 usermod -a -G sudo $USERNAME
 
-# choose a password
-passwd $USERNAME
 
 
 # update package information
@@ -38,7 +36,11 @@ chmod 0700 $HOME_DIRECTORY/.ssh
 chmod 0600 $HOME_DIRECTORY/.ssh/authorized_keys
 chown --recursive $USERNAME:$USERNAME $HOME_DIRECTORY/.ssh
 
-sed -re "s/^(\#?)(PasswordAuthentication)([[:space:]]+)(yes|no)/Match user\ \!$USERNAME\n\2\3no\nMatch user $USERNAME\n\2\3yes\nMatch all/" -i /etc/ssh/sshd_config
+echo "PermitRootLogin no
+Match $USERNAME
+    PasswordAuthentication yes
+Match all
+    PasswordAuthentication no" > /etc/ssh/sshd_conf.d/99-mychanges.conf
 
 
 # firewall
