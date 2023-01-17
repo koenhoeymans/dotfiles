@@ -91,6 +91,12 @@ smtp_tls_security_level = encrypt
 ' >> /etc/postfix/main.cf
 /etc/init.d/postfix reload
 
+
+# misc
+git config --global user.email "koen@hoeymans.be"
+git config --global user.name "Koen Hoeymans"
+
+
 mail -s 'new system set up' koen@hoeymans.be <<< 'now rebooting'
 
 reboot
