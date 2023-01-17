@@ -38,7 +38,7 @@ chown --recursive $USERNAME:$USERNAME $HOME_DIRECTORY/.ssh
 
 cat <<EOF > /etc/ssh/sshd_config.d/99-mychanges.conf
 PermitRootLogin no
-Match $USERNAME
+Match User $USERNAME
     PasswordAuthentication yes
 Match all
     PasswordAuthentication no
