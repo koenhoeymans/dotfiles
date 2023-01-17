@@ -36,7 +36,7 @@ chmod 0700 $HOME_DIRECTORY/.ssh
 chmod 0600 $HOME_DIRECTORY/.ssh/authorized_keys
 chown --recursive $USERNAME:$USERNAME $HOME_DIRECTORY/.ssh
 
-cat <<EOF > /etc/ssh/sshd_conf.d/99-mychanges.conf
+cat <<EOF > /etc/ssh/sshd_config.d/99-mychanges.conf
 PermitRootLogin no
 Match $USERNAME
     PasswordAuthentication yes
