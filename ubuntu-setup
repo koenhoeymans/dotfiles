@@ -19,8 +19,6 @@ adduser $USERNAME --gecos ''
 # add (-a) user to the sudo group (-G) 
 usermod -a -G sudo $USERNAME
 
-
-
 # update package information
 apt-get update
 
@@ -43,7 +41,6 @@ Match User $USERNAME
 Match all
     PasswordAuthentication no
 EOF
-
 
 # firewall
 
@@ -90,7 +87,6 @@ smtp_tls_wrappermode = yes
 smtp_tls_security_level = encrypt
 ' >> /etc/postfix/main.cf
 /etc/init.d/postfix reload
-
 
 # misc
 git config --global user.email "koen@hoeymans.be"
